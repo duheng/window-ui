@@ -1,0 +1,18 @@
+{
+  "name": "widow-ui",
+  "version": "1.2.0",
+  "description": "A UI library for react native.",
+  "main": "index.js",
+  "keywords": [
+    "react",
+    "react-native",
+    "UI",
+    "library",
+    "framework"
+  ],
+  "author": "fei@wepiao",
+  "license": "MIT",
+  "dependencies": {
+    "react-native-deprecated-custom-components": "^0.1.0"
+  }
+}
