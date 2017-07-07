@@ -1,14 +1,15 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactNative, {
   StyleSheet,
   Animated,
   View,
   PanResponder,
-  Platform
-} from "react-native";
+  Platform,
+} from 'react-native';
 
-import Theme from "../../themes/Theme";
-import KeyboardSpace from "../KeyboardSpace";
+import Theme from '../../themes/Theme';
+import KeyboardSpace from '../KeyboardSpace';
 
 export default class OverlayView extends Component {
   static propTypes = {
@@ -20,14 +21,14 @@ export default class OverlayView extends Component {
     autoKeyboardInsets: PropTypes.bool,
     onAppearCompleted: PropTypes.func,
     onDisappearCompleted: PropTypes.func,
-    onCloseRequest: PropTypes.func //(overlayView)
+    onCloseRequest: PropTypes.func, //(overlayView)
   };
 
   static defaultProps = {
     modal: false,
     animated: false,
-    overlayPointerEvents: "auto",
-    autoKeyboardInsets: false
+    overlayPointerEvents: 'auto',
+    autoKeyboardInsets: false,
   };
 
   constructor(props) {
@@ -35,20 +36,20 @@ export default class OverlayView extends Component {
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: (e, gestureState) => true,
       onPanResponderGrant: (e, gestureState) =>
-        this.touchStateID = gestureState.stateID,
+        (this.touchStateID = gestureState.stateID),
       onPanResponderRelease: (e, gestureState) =>
-        (this.touchStateID == gestureState.stateID ? this.closeRequest() : null)
+        this.touchStateID == gestureState.stateID ? this.closeRequest() : null,
     });
     this.state = {
-      overlayOpacity: new Animated.Value(0)
+      overlayOpacity: new Animated.Value(0),
     };
   }
 
   componentWillMount() {
-    if (Platform.OS === "android") {
+    if (Platform.OS === 'android') {
       const BackHandler = ReactNative.BackHandler || ReactNative.BackAndroid;
       this.backListener = BackHandler.addEventListener(
-        "hardwareBackPress",
+        'hardwareBackPress',
         () => {
           this.closeRequest();
           return true;
@@ -82,8 +83,8 @@ export default class OverlayView extends Component {
   get appearAnimates() {
     let animates = [
       Animated.spring(this.state.overlayOpacity, {
-        toValue: this.overlayOpacity
-      })
+        toValue: this.overlayOpacity,
+      }),
     ];
     return animates;
   }
@@ -91,8 +92,8 @@ export default class OverlayView extends Component {
   get disappearAnimates() {
     let animates = [
       Animated.spring(this.state.overlayOpacity, {
-        toValue: 0
-      })
+        toValue: 0,
+      }),
     ];
     return animates;
   }
@@ -153,7 +154,7 @@ export default class OverlayView extends Component {
 
   buildProps() {
     let { style, ...others } = this.props;
-    style = [{ backgroundColor: "rgba(0, 0, 0, 0)", flex: 1 }].concat(style);
+    style = [{ backgroundColor: 'rgba(0, 0, 0, 0)', flex: 1 }].concat(style);
     this.props = { style, ...others };
   }
 
@@ -175,7 +176,7 @@ export default class OverlayView extends Component {
         <Animated.View
           style={[
             styles.screen,
-            { backgroundColor: "#000", opacity: this.state.overlayOpacity }
+            { backgroundColor: '#000', opacity: this.state.overlayOpacity },
           ]}
           {...this.panResponder.panHandlers}
         />
@@ -190,11 +191,11 @@ export default class OverlayView extends Component {
 
 var styles = StyleSheet.create({
   screen: {
-    backgroundColor: "rgba(0, 0, 0, 0)",
-    position: "absolute",
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0
-  }
+    bottom: 0,
+  },
 });

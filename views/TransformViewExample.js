@@ -1,13 +1,14 @@
-import React, { Component, PropTypes } from "react";
-import { View, Image } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, Image } from 'react-native';
 
-import { Theme, NavigationPage, TransformView } from "widow-ui";
+import { Theme, NavigationPage, TransformView } from 'widow-ui';
 
 export default class TransformViewExample extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: " TransformView",
-    showBackButton: true
+    title: ' TransformView',
+    showBackButton: true,
   };
 
   renderPage() {
@@ -16,8 +17,8 @@ export default class TransformViewExample extends NavigationPage {
         style={{
           backgroundColor: Theme.pageColor,
           flex: 1,
-          alignItems: "center",
-          justifyContent: "center"
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
         minScale={0.5}
         maxScale={2}
@@ -26,7 +27,7 @@ export default class TransformViewExample extends NavigationPage {
         <Image
           style={{ width: 375, height: 300 }}
           resizeMode="cover"
-          source={require("../images/teaset1.jpg")}
+          source={require('../images/teaset1.jpg')}
         />
       </TransformView>
     );

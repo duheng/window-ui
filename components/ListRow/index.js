@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 import Theme from '../../themes/Theme';
@@ -122,8 +123,7 @@ export default class ListRow extends Component {
       if (title) {
         if (titlePlace === 'left')
           textStyle.paddingLeft = Theme.rowPaddingTitleDetail;
-        else
-          textStyle.paddingTop = Theme.rowPaddingTitleDetail;
+        else textStyle.paddingTop = Theme.rowPaddingTitleDetail;
       }
       if (!detailMultiLine && detailMultiLine !== false) {
         detailMultiLine = titlePlace === 'top';

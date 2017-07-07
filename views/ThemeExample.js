@@ -1,18 +1,19 @@
-import React, { Component, PropTypes } from "react";
-import { View, ScrollView, ActivityIndicator } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ScrollView, ActivityIndicator } from 'react-native';
 
-import { Theme, NavigationPage, ListRow, PullPicker } from "widow-ui";
+import { Theme, NavigationPage, ListRow, PullPicker } from 'widow-ui';
 
 export default class ThemeExample extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "Theme",
-    showBackButton: true
+    title: 'Theme',
+    showBackButton: true,
   };
 
   changeTheme() {
     PullPicker.show(
-      "Select theme",
+      'Select theme',
       Object.keys(Theme.themes),
       -1,
       (item, index) => {

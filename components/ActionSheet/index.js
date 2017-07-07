@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Overlay from '../Overlay';
 import ActionSheetView from './ActionSheetView';
 
@@ -16,7 +16,7 @@ export default class ActionSheet extends Overlay {
         items={items}
         cancelItem={cancelItem}
         {...options}
-      />,
+      />
     );
   }
 }

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ScrollView } from 'react-native';
 
 import { NavigationPage, ListRow, ModalIndicator } from 'widow-ui';
@@ -13,17 +14,14 @@ export default class ModalIndicatorExample extends NavigationPage {
   show() {
     let secs = 5;
     ModalIndicator.show(`Close after ${secs} sec(s)`);
-    let timer = setInterval(
-      () => {
-        secs--;
-        ModalIndicator.show(`Close after ${secs} sec(s)`);
-        if (secs < 0) {
-          clearInterval(timer);
-          ModalIndicator.hide();
-        }
-      },
-      1000,
-    );
+    let timer = setInterval(() => {
+      secs--;
+      ModalIndicator.show(`Close after ${secs} sec(s)`);
+      if (secs < 0) {
+        clearInterval(timer);
+        ModalIndicator.hide();
+      }
+    }, 1000);
   }
 
   renderPage() {

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   AppRegistry,
@@ -99,13 +100,15 @@ if (!AppRegistry.registerComponentOld) {
 }
 AppRegistry.registerComponent = function(appKey, getComponentFunc) {
   let SourceComponent = getComponentFunc();
-  return AppRegistry.registerComponentOld(appKey, () => React.createClass({
-    render: function() {
-      return (
-        <TopView>
-          <SourceComponent {...this.props} />
-        </TopView>
-      );
-    },
-  }));
+  return AppRegistry.registerComponentOld(appKey, () =>
+    React.createClass({
+      render: function() {
+        return (
+          <TopView>
+            <SourceComponent {...this.props} />
+          </TopView>
+        );
+      },
+    })
+  );
 };

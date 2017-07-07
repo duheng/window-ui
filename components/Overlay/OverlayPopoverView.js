@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, Dimensions, Platform } from 'react-native';
 
 import OverlayView from './OverlayView';
@@ -63,8 +64,7 @@ export default class OverlayPopoverView extends OverlayView {
     if (popoverWidth === null || popoverHeight === null) {
       let { popoverStyle, direction, showArrow, ...others } = this.props;
       let arrow;
-      if (!showArrow)
-        arrow = 'none';
+      if (!showArrow) arrow = 'none';
       else {
         switch (direction) {
           case 'right':
@@ -210,7 +210,8 @@ export default class OverlayPopoverView extends OverlayView {
     }
     let { width, height } = e.nativeEvent.layout;
     if (
-      width !== this.state.popoverWidth || height !== this.state.popoverHeight
+      width !== this.state.popoverWidth ||
+      height !== this.state.popoverHeight
     ) {
       this.setState({ popoverWidth: width, popoverHeight: height });
     }

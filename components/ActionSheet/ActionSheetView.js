@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
 import Overlay from '../Overlay';
@@ -12,7 +13,7 @@ export default class ActionSheetView extends Overlay.PullView {
         title: PropTypes.string.isRequired,
         onPress: PropTypes.func,
         disabled: PropTypes.bool,
-      }),
+      })
     ),
     cancelItem: PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -56,7 +57,7 @@ export default class ActionSheetView extends Overlay.PullView {
           topSeparator={i === 0 ? 'none' : 'full'}
           disabled={item.disabled}
           onPress={() => this.onItemPress(item)}
-        />,
+        />
       );
     }
     if (cancelItem) {
@@ -68,7 +69,7 @@ export default class ActionSheetView extends Overlay.PullView {
           topSeparator="full"
           disabled={cancelItem.disabled}
           onPress={() => this.onCancelItemPress()}
-        />,
+        />
       );
     }
 

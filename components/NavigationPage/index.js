@@ -1,24 +1,25 @@
-import React, { Component, PropTypes } from "react";
-import { Platform, View } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Platform, View } from 'react-native';
 
-import TeaNavigator from "../TeaNavigator";
-import Theme from "../../themes/Theme";
-import BasePage from "../BasePage";
-import NavigationBar from "../NavigationBar";
-import KeyboardSpace from "../KeyboardSpace";
+import TeaNavigator from '../TeaNavigator';
+import Theme from '../../themes/Theme';
+import BasePage from '../BasePage';
+import NavigationBar from '../NavigationBar';
+import KeyboardSpace from '../KeyboardSpace';
 
 export default class NavigationPage extends BasePage {
   static propTypes = {
     ...BasePage.propTypes,
     title: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-    showBackButton: PropTypes.bool
+    showBackButton: PropTypes.bool,
   };
 
   static defaultProps = {
     ...BasePage.defaultProps,
     scene: TeaNavigator.SceneConfigs.PushFromRight,
     title: null,
-    showBackButton: false
+    showBackButton: false,
   };
 
   buildProps() {
@@ -29,8 +30,8 @@ export default class NavigationPage extends BasePage {
       {
         flex: 1,
         padding: 0,
-        marginTop: Platform.OS === "ios" ? 64 : 44
-      }
+        marginTop: Platform.OS === 'ios' ? 64 : 44,
+      },
     ];
     this.props = { pageContainerStyle, ...others };
   }

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
 import Theme from '../../themes/Theme';
@@ -111,7 +112,7 @@ export default class SegmentedView extends Component {
         onChange={index => {
           this.setState(
             { activeIndex: index },
-            () => onChange && onChange(index),
+            () => onChange && onChange(index)
           );
         }}
       >

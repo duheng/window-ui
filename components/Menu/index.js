@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
 import Overlay from '../Overlay';
@@ -14,7 +15,7 @@ export default class Menu extends Overlay {
   //   onPress: PropTypes.func,
   static show(fromBounds, items, options = {}) {
     return super.show(
-      <this.MenuView fromBounds={fromBounds} items={items} {...options} />,
+      <this.MenuView fromBounds={fromBounds} items={items} {...options} />
     );
   }
 }

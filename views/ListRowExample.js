@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ScrollView, Image, Text } from 'react-native';
 
 import { NavigationPage, ListRow, Label } from 'widow-ui';
@@ -17,27 +18,23 @@ export default class ListRowExample extends NavigationPage {
         <ListRow title="Title" detail="Detail" topSeparator="full" />
         <ListRow
           title={
-            (
-              <Label
-                style={{ fontSize: 18, color: '#31708f' }}
-                text="Custom title"
-              />
-            )
+            <Label
+              style={{ fontSize: 18, color: '#31708f' }}
+              text="Custom title"
+            />
           }
         />
         <ListRow
           title="Custom detail"
           detail={
-            (
-              <View
-                style={{
-                  backgroundColor: '#5bc0de',
-                  width: 60,
-                  height: 24,
-                  borderRadius: 4,
-                }}
-              />
-            )
+            <View
+              style={{
+                backgroundColor: '#5bc0de',
+                width: 60,
+                height: 24,
+                borderRadius: 4,
+              }}
+            />
           }
         />
         <ListRow

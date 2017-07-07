@@ -1,37 +1,38 @@
-import React, { Component, PropTypes } from "react";
-import { StyleSheet, Platform, StatusBar, View, Text } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { StyleSheet, Platform, StatusBar, View, Text } from 'react-native';
 
-import Theme from "../../themes/Theme";
-import NavigationTitle from "./NavigationTitle";
-import NavigationButton from "./NavigationButton";
-import NavigationLinkButton from "./NavigationLinkButton";
-import NavigationIconButton from "./NavigationIconButton";
-import NavigationBackButton from "./NavigationBackButton";
+import Theme from '../../themes/Theme';
+import NavigationTitle from './NavigationTitle';
+import NavigationButton from './NavigationButton';
+import NavigationLinkButton from './NavigationLinkButton';
+import NavigationIconButton from './NavigationIconButton';
+import NavigationBackButton from './NavigationBackButton';
 
 export default class NavigationBar extends Component {
   static propTypes = {
     ...View.propTypes,
-    type: PropTypes.oneOf(["auto", "ios", "android"]),
+    type: PropTypes.oneOf(['auto', 'ios', 'android']),
     tintColor: PropTypes.string, //bar tint color, default tint color of title, leftView and rightView
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     titleStyle: Text.propTypes.style,
     leftView: PropTypes.element,
     rightView: PropTypes.element,
     tintColor: PropTypes.string, // bar tint color, default tint color leftview and rightview
-    statusBarStyle: PropTypes.oneOf(["default", "light-content"]), //status bar style (iOS only)
+    statusBarStyle: PropTypes.oneOf(['default', 'light-content']), //status bar style (iOS only)
     statusBarColor: PropTypes.string, //status bar color, default: style.backgroundColor
     statusBarHidden: PropTypes.bool, //status bar hidden
-    statusBarInsets: PropTypes.bool //auto add space for iOS status bar
+    statusBarInsets: PropTypes.bool, //auto add space for iOS status bar
   };
 
   static defaultProps = {
     ...View.defaultProps,
-    type: "auto",
-    statusBarInsets: true
+    type: 'auto',
+    statusBarInsets: true,
   };
 
   static childContextTypes = {
-    tintColor: PropTypes.string
+    tintColor: PropTypes.string,
   };
 
   static Title = NavigationTitle;
@@ -44,7 +45,7 @@ export default class NavigationBar extends Component {
     super(props);
     this.state = {
       leftViewWidth: 0,
-      rightViewWidth: 0
+      rightViewWidth: 0,
     };
   }
 
@@ -66,24 +67,25 @@ export default class NavigationBar extends Component {
     } = this.props;
 
     //build style
-    let justifyContent = "space-between", titleTextAlign = "center";
+    let justifyContent = 'space-between',
+      titleTextAlign = 'center';
     style = [
       {
         backgroundColor: Theme.navColor,
-        position: "absolute",
+        position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
-        height: statusBarInsets && Platform.OS === "ios" ? 64 : 44,
-        paddingTop: statusBarInsets && Platform.OS === "ios" ? 20 : 0,
+        height: statusBarInsets && Platform.OS === 'ios' ? 64 : 44,
+        paddingTop: statusBarInsets && Platform.OS === 'ios' ? 20 : 0,
         borderBottomWidth: Theme.navSeparatorLineWidth,
         borderBottomColor: Theme.navSeparatorColor,
         paddingLeft: 4,
         paddingRight: 4,
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: justifyContent
-      }
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: justifyContent,
+      },
     ].concat(style);
 
     let fs = StyleSheet.flatten(style);
@@ -96,7 +98,7 @@ export default class NavigationBar extends Component {
     if (!statusBarStyle)
       statusBarStyle = Theme.navStatusBarStyle
         ? Theme.navStatusBarStyle
-        : "default";
+        : 'default';
 
     //build titleViewStyle
     let { leftViewWidth, rightViewWidth } = this.state;
@@ -107,27 +109,27 @@ export default class NavigationBar extends Component {
       ? fs.paddingRight
       : fs.padding ? fs.padding : 0;
     let paddingLeft, paddingRight;
-      let paddingLeftRight = Math.max(
-          leftViewWidth + barPaddingLeft,
-          rightViewWidth + barPaddingRight
-        );
-        paddingLeft = paddingLeftRight;
-        paddingRight = paddingLeftRight;
+    let paddingLeftRight = Math.max(
+      leftViewWidth + barPaddingLeft,
+      rightViewWidth + barPaddingRight
+    );
+    paddingLeft = paddingLeftRight;
+    paddingRight = paddingLeftRight;
     let titleViewStyle = {
-      position: "absolute",
-      top: statusBarInsets && Platform.OS === "ios" ? 20 : 0,
+      position: 'absolute',
+      top: statusBarInsets && Platform.OS === 'ios' ? 20 : 0,
       left: 0,
       right: 0,
       height: 44,
       paddingLeft: paddingLeft,
       paddingRight: paddingRight,
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center"
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
     };
 
     //convert string title to NavigationBar.Title
-    if (typeof title === "string") {
+    if (typeof title === 'string') {
       title = (
         <this.constructor.Title
           style={{ textAlign: titleTextAlign, color: Theme.navTitleColor }}
@@ -146,7 +148,7 @@ export default class NavigationBar extends Component {
       statusBarColor,
       statusBarStyle,
       statusBarInsets,
-      ...others
+      ...others,
     };
   }
 

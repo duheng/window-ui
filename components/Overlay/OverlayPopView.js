@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Animated, View } from 'react-native';
 
 import OverlayView from './OverlayView';
@@ -101,7 +102,7 @@ export default class OverlayPopView extends OverlayView {
     let bounds;
     if (type === 'custom' && !customBounds) {
       console.error(
-        'OverlayPopView: customBounds can not be null when type is "custom"',
+        'OverlayPopView: customBounds can not be null when type is "custom"'
       );
     }
     if (type === 'custom' && customBounds) {

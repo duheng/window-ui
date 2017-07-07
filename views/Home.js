@@ -1,51 +1,52 @@
 // Home.js
 
-"use strict";
+'use strict';
 
-import React, { Component, PropTypes } from "react";
-import { View, ScrollView } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ScrollView } from 'react-native';
 
 import {
   TeaNavigator,
   Theme,
   NavigationPage,
   NavigationBar,
-  ListRow
-} from "widow-ui";
+  ListRow,
+} from 'widow-ui';
 
-import ThemeExample from "./ThemeExample";
-import LabelExample from "./LabelExample";
-import ButtonExample from "./ButtonExample";
-import CheckboxExample from "./CheckboxExample";
-import InputExample from "./InputExample";
-import SelectExample from "./SelectExample";
-import StepperExample from "./StepperExample";
-import SearchInputExample from "./SearchInputExample";
-import BadgeExample from "./BadgeExample";
-import PopoverExample from "./PopoverExample";
-import NavigationBarExample from "./NavigationBarExample";
-import ListRowExample from "./ListRowExample";
-import CarouselExample from "./CarouselExample";
-import ProjectorExample from "./ProjectorExample";
-import SegmentedViewExample from "./SegmentedViewExample";
-import TabViewExample from "./TabViewExample";
-import TransformViewExample from "./TransformViewExample";
-import OverlayExample from "./OverlayExample";
-import ToastExample from "./ToastExample";
-import ActionSheetExample from "./ActionSheetExample";
-import ActionPopoverExample from "./ActionPopoverExample";
-import PullPickerExample from "./PullPickerExample";
-import PopoverPickerExample from "./PopoverPickerExample";
-import MenuExample from "./MenuExample";
-import ModalIndicatorExample from "./ModalIndicatorExample";
-import MultiScrollViewExample from "./MultiScrollViewExample";
+import ThemeExample from './ThemeExample';
+import LabelExample from './LabelExample';
+import ButtonExample from './ButtonExample';
+import CheckboxExample from './CheckboxExample';
+import InputExample from './InputExample';
+import SelectExample from './SelectExample';
+import StepperExample from './StepperExample';
+import SearchInputExample from './SearchInputExample';
+import BadgeExample from './BadgeExample';
+import PopoverExample from './PopoverExample';
+import NavigationBarExample from './NavigationBarExample';
+import ListRowExample from './ListRowExample';
+import CarouselExample from './CarouselExample';
+import ProjectorExample from './ProjectorExample';
+import SegmentedViewExample from './SegmentedViewExample';
+import TabViewExample from './TabViewExample';
+import TransformViewExample from './TransformViewExample';
+import OverlayExample from './OverlayExample';
+import ToastExample from './ToastExample';
+import ActionSheetExample from './ActionSheetExample';
+import ActionPopoverExample from './ActionPopoverExample';
+import PullPickerExample from './PullPickerExample';
+import PopoverPickerExample from './PopoverPickerExample';
+import MenuExample from './MenuExample';
+import ModalIndicatorExample from './ModalIndicatorExample';
+import MultiScrollViewExample from './MultiScrollViewExample';
 
 export default class Home extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "Teaset Example",
+    title: 'Teaset Example',
     showBackButton: true,
-    scene: TeaNavigator.SceneConfigs.PushFromLeft
+    scene: TeaNavigator.SceneConfigs.PushFromLeft,
   };
 
   renderPage() {

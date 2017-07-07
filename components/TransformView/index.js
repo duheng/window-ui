@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, Animated, PanResponder } from 'react-native';
 
 import Theme from '../../themes/Theme';
@@ -55,22 +56,20 @@ export default class TransformView extends Component {
   restoreLayout(animated) {
     let { translateX, translateY, scale } = this.state;
     if (animated) {
-      Animated
-        .parallel([
-          Animated.spring(translateX, {
-            toValue: 0,
-            friction: 7,
-          }),
-          Animated.spring(translateY, {
-            toValue: 0,
-            friction: 7,
-          }),
-          Animated.spring(scale, {
-            toValue: 1,
-            friction: 7,
-          }),
-        ])
-        .start();
+      Animated.parallel([
+        Animated.spring(translateX, {
+          toValue: 0,
+          friction: 7,
+        }),
+        Animated.spring(translateY, {
+          toValue: 0,
+          friction: 7,
+        }),
+        Animated.spring(scale, {
+          toValue: 1,
+          friction: 7,
+        }),
+      ]).start();
     } else {
       translateX.setValue(0);
       translateY.setValue(0);
@@ -179,7 +178,8 @@ export default class TransformView extends Component {
     let dy = t1.y - t0.y;
 
     //scale
-    let distance0 = 0, distance1 = 0;
+    let distance0 = 0,
+      distance1 = 0;
     if (touches.length >= 2) {
       let dx0 = prevTouches[1].pageX - prevTouches[0].pageX;
       let dy0 = prevTouches[1].pageY - prevTouches[0].pageY;
@@ -221,7 +221,9 @@ export default class TransformView extends Component {
   handleRelease() {
     let { magnetic, maxScale, minScale } = this.props;
     let { translateX, translateY, scale } = this.state;
-    let newX = null, newY = null, newScale = null;
+    let newX = null,
+      newY = null,
+      newScale = null;
     if (magnetic) {
       let { x, y, width, height } = this.layout;
       if (width < this.initLayout.width || height < this.initLayout.height) {
@@ -232,13 +234,15 @@ export default class TransformView extends Component {
         if (x > this.initLayout.x) {
           newX = translateX._value - (x - this.initLayout.x);
         } else if (x + width < this.initLayout.x + this.initLayout.width) {
-          newX = translateX._value +
+          newX =
+            translateX._value +
             (this.initLayout.x + this.initLayout.width - (x + width));
         }
         if (y > this.initLayout.y) {
           newY = translateY._value - (y - this.initLayout.y);
         } else if (y + height < this.initLayout.y + this.initLayout.height) {
-          newY = translateY._value +
+          newY =
+            translateY._value +
             (this.initLayout.y + this.initLayout.height - (y + height));
         }
       }
@@ -254,21 +258,21 @@ export default class TransformView extends Component {
         Animated.spring(translateX, {
           toValue: newX,
           friction: 7,
-        }),
+        })
       );
     newY !== null &&
       animates.push(
         Animated.spring(translateY, {
           toValue: newY,
           friction: 7,
-        }),
+        })
       );
     newScale !== null &&
       animates.push(
         Animated.spring(scale, {
           toValue: newScale,
           friction: 7,
-        }),
+        })
       );
     animates.length > 0 && Animated.parallel(animates).start();
   }

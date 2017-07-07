@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ScrollView } from 'react-native';
 
 import { NavigationPage, ListRow, PopoverPicker } from 'widow-ui';
@@ -36,7 +37,7 @@ export default class PopoverPickerExample extends NavigationPage {
         { x, y, width, height },
         this.items,
         this.state.selectedIndex,
-        (item, index) => this.setState({ selectedIndex: index }),
+        (item, index) => this.setState({ selectedIndex: index })
       );
     });
   }
@@ -48,7 +49,7 @@ export default class PopoverPickerExample extends NavigationPage {
         this.items,
         this.state.modalSelectedIndex,
         (item, index) => this.setState({ modalSelectedIndex: index }),
-        { modal: true },
+        { modal: true }
       );
     });
   }

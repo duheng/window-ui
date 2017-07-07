@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ScrollView } from 'react-native';
 
 import { NavigationPage, ListRow, NavigationBar, Label } from 'widow-ui';
@@ -19,7 +20,9 @@ export default class NavigationBarExample extends NavigationPage {
   }
 
   renderDetail(type, example) {
-    let title = example, leftView, rightView;
+    let title = example,
+      leftView,
+      rightView;
     let style = {
       //only for this example, do not use in your code
       flex: 1,

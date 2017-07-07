@@ -1,17 +1,18 @@
-import React, { Component, PropTypes } from "react";
-import { StyleSheet, View, Image, ScrollView } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { StyleSheet, View, Image, ScrollView } from 'react-native';
 
-import { NavigationPage, ListRow, Popover, Label } from "widow-ui";
+import { NavigationPage, ListRow, Popover, Label } from 'widow-ui';
 
 export default class PopoverExample extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "Popover",
-    showBackButton: true
+    title: 'Popover',
+    showBackButton: true,
   };
 
   renderPage() {
-    let img = require("../images/faircup.jpg");
+    let img = require('../images/faircup.jpg');
     return (
       <ScrollView style={{ flex: 1 }}>
         <View style={{ height: 20 }} />
@@ -19,24 +20,24 @@ export default class PopoverExample extends NavigationPage {
         <View
           style={{
             padding: 4,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center"
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <View style={{ flex: 1, paddingRight: 8, alignItems: "flex-end" }}>
+          <View style={{ flex: 1, paddingRight: 8, alignItems: 'flex-end' }}>
             <Popover style={styles.popoverStyle} arrow="bottomRight">
-              <Label style={{ color: "#000" }} text="bottomRight" />
+              <Label style={{ color: '#000' }} text="bottomRight" />
             </Popover>
           </View>
           <View>
             <Popover style={styles.popoverStyle} arrow="bottom">
-              <Label style={{ color: "#000" }} text="bottom" />
+              <Label style={{ color: '#000' }} text="bottom" />
             </Popover>
           </View>
-          <View style={{ flex: 1, paddingLeft: 8, alignItems: "flex-start" }}>
+          <View style={{ flex: 1, paddingLeft: 8, alignItems: 'flex-start' }}>
             <Popover style={styles.popoverStyle} arrow="bottomLeft">
-              <Label style={{ color: "#000" }} text="bottomLeft" />
+              <Label style={{ color: '#000' }} text="bottomLeft" />
             </Popover>
           </View>
         </View>
@@ -44,20 +45,20 @@ export default class PopoverExample extends NavigationPage {
         <View
           style={{
             padding: 4,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center"
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <View style={{ flex: 1, paddingRight: 40, alignItems: "flex-end" }}>
+          <View style={{ flex: 1, paddingRight: 40, alignItems: 'flex-end' }}>
             <Popover style={styles.popoverStyle} arrow="rightBottom">
-              <Label style={{ color: "#000" }} text="rightBottom" />
+              <Label style={{ color: '#000' }} text="rightBottom" />
             </Popover>
           </View>
           <View style={{ height: 32, width: 32 }} />
-          <View style={{ flex: 1, paddingLeft: 40, alignItems: "flex-start" }}>
+          <View style={{ flex: 1, paddingLeft: 40, alignItems: 'flex-start' }}>
             <Popover style={styles.popoverStyle} arrow="leftBottom">
-              <Label style={{ color: "#000" }} text="leftBottom" />
+              <Label style={{ color: '#000' }} text="leftBottom" />
             </Popover>
           </View>
         </View>
@@ -65,14 +66,14 @@ export default class PopoverExample extends NavigationPage {
         <View
           style={{
             padding: 4,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center"
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <View style={{ flex: 1, paddingRight: 40, alignItems: "flex-end" }}>
+          <View style={{ flex: 1, paddingRight: 40, alignItems: 'flex-end' }}>
             <Popover style={styles.popoverStyle} arrow="right">
-              <Label style={{ color: "#000" }} text="right" />
+              <Label style={{ color: '#000' }} text="right" />
             </Popover>
           </View>
           <Image
@@ -80,13 +81,13 @@ export default class PopoverExample extends NavigationPage {
               height: 32,
               width: 32,
               borderRadius: 16,
-              tintColor: "#337ab7"
+              tintColor: '#337ab7',
             }}
-            source={require("../icons/smile.png")}
+            source={require('../icons/smile.png')}
           />
-          <View style={{ flex: 1, paddingLeft: 40, alignItems: "flex-start" }}>
+          <View style={{ flex: 1, paddingLeft: 40, alignItems: 'flex-start' }}>
             <Popover style={styles.popoverStyle} arrow="left">
-              <Label style={{ color: "#000" }} text="left" />
+              <Label style={{ color: '#000' }} text="left" />
             </Popover>
           </View>
         </View>
@@ -94,20 +95,20 @@ export default class PopoverExample extends NavigationPage {
         <View
           style={{
             padding: 4,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center"
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <View style={{ flex: 1, paddingRight: 40, alignItems: "flex-end" }}>
+          <View style={{ flex: 1, paddingRight: 40, alignItems: 'flex-end' }}>
             <Popover style={styles.popoverStyle} arrow="rightTop">
-              <Label style={{ color: "#000" }} text="rightTop" />
+              <Label style={{ color: '#000' }} text="rightTop" />
             </Popover>
           </View>
           <View style={{ height: 32, width: 32 }} />
-          <View style={{ flex: 1, paddingLeft: 40, alignItems: "flex-start" }}>
+          <View style={{ flex: 1, paddingLeft: 40, alignItems: 'flex-start' }}>
             <Popover style={styles.popoverStyle} arrow="leftTop">
-              <Label style={{ color: "#000" }} text="leftTop" />
+              <Label style={{ color: '#000' }} text="leftTop" />
             </Popover>
           </View>
         </View>
@@ -115,24 +116,24 @@ export default class PopoverExample extends NavigationPage {
         <View
           style={{
             padding: 4,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center"
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <View style={{ flex: 1, paddingRight: 8, alignItems: "flex-end" }}>
+          <View style={{ flex: 1, paddingRight: 8, alignItems: 'flex-end' }}>
             <Popover style={styles.popoverStyle} arrow="topRight">
-              <Label style={{ color: "#000" }} text="topRight" />
+              <Label style={{ color: '#000' }} text="topRight" />
             </Popover>
           </View>
           <View>
             <Popover style={styles.popoverStyle} arrow="top">
-              <Label style={{ color: "#000" }} text="top" />
+              <Label style={{ color: '#000' }} text="top" />
             </Popover>
           </View>
-          <View style={{ flex: 1, paddingLeft: 8, alignItems: "flex-start" }}>
+          <View style={{ flex: 1, paddingLeft: 8, alignItems: 'flex-start' }}>
             <Popover style={styles.popoverStyle} arrow="topLeft">
-              <Label style={{ color: "#000" }} text="topLeft" />
+              <Label style={{ color: '#000' }} text="topLeft" />
             </Popover>
           </View>
         </View>
@@ -144,18 +145,18 @@ export default class PopoverExample extends NavigationPage {
 
 var styles = StyleSheet.create({
   popoverStyle: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     paddingTop: 8,
     paddingBottom: 8,
     paddingLeft: 12,
     paddingRight: 12,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   shadowStyle: {
-    shadowColor: "#777",
+    shadowColor: '#777',
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.5,
-    shadowRadius: 2
-  }
+    shadowRadius: 2,
+  },
 });

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ScrollView, Image } from 'react-native';
 
 import { NavigationPage, ListRow, Checkbox, Label } from 'widow-ui';
@@ -29,41 +30,35 @@ export default class CheckboxExample extends NavigationPage {
         <ListRow
           title="Size sm"
           detail={
-            (
-              <Checkbox
-                title="Checkbox"
-                size="sm"
-                checked={this.state.checkedSM}
-                onChange={value => this.setState({ checkedSM: value })}
-              />
-            )
+            <Checkbox
+              title="Checkbox"
+              size="sm"
+              checked={this.state.checkedSM}
+              onChange={value => this.setState({ checkedSM: value })}
+            />
           }
           topSeparator="full"
         />
         <ListRow
           title="Size md"
           detail={
-            (
-              <Checkbox
-                title="Checkbox"
-                size="md"
-                checked={this.state.checkedMD}
-                onChange={value => this.setState({ checkedMD: value })}
-              />
-            )
+            <Checkbox
+              title="Checkbox"
+              size="md"
+              checked={this.state.checkedMD}
+              onChange={value => this.setState({ checkedMD: value })}
+            />
           }
         />
         <ListRow
           title="Size lg"
           detail={
-            (
-              <Checkbox
-                title="Checkbox"
-                size="lg"
-                checked={this.state.checkedLG}
-                onChange={value => this.setState({ checkedLG: value })}
-              />
-            )
+            <Checkbox
+              title="Checkbox"
+              size="lg"
+              checked={this.state.checkedLG}
+              onChange={value => this.setState({ checkedLG: value })}
+            />
           }
           bottomSeparator="full"
         />
@@ -71,26 +66,22 @@ export default class CheckboxExample extends NavigationPage {
         <ListRow
           title="Empty title"
           detail={
-            (
-              <Checkbox
-                checked={this.state.checkedEmpty}
-                onChange={value => this.setState({ checkedEmpty: value })}
-              />
-            )
+            <Checkbox
+              checked={this.state.checkedEmpty}
+              onChange={value => this.setState({ checkedEmpty: value })}
+            />
           }
           topSeparator="full"
         />
         <ListRow
           title="Disabled"
           detail={
-            (
-              <Checkbox
-                title="Checkbox"
-                disabled={true}
-                checked={this.state.checkedDisable}
-                onChange={value => this.setState({ checkedDisable: value })}
-              />
-            )
+            <Checkbox
+              title="Checkbox"
+              disabled={true}
+              checked={this.state.checkedDisable}
+              onChange={value => this.setState({ checkedDisable: value })}
+            />
           }
           bottomSeparator="full"
         />
@@ -98,30 +89,24 @@ export default class CheckboxExample extends NavigationPage {
         <ListRow
           title="Custom"
           detail={
-            (
-              <Checkbox
-                title="Custom"
-                titleStyle={{ color: '#8a6d3b', paddingLeft: 4 }}
-                checkedIcon={
-                  (
-                    <Image
-                      style={{ width: 15, height: 15, tintColor: '#8a6d3b' }}
-                      source={require('../icons/checkbox_checked.png')}
-                    />
-                  )
-                }
-                uncheckedIcon={
-                  (
-                    <Image
-                      style={{ width: 15, height: 15, tintColor: '#8a6d3b' }}
-                      source={require('../icons/checkbox_unchecked.png')}
-                    />
-                  )
-                }
-                checked={this.state.checkedCustom}
-                onChange={value => this.setState({ checkedCustom: value })}
-              />
-            )
+            <Checkbox
+              title="Custom"
+              titleStyle={{ color: '#8a6d3b', paddingLeft: 4 }}
+              checkedIcon={
+                <Image
+                  style={{ width: 15, height: 15, tintColor: '#8a6d3b' }}
+                  source={require('../icons/checkbox_checked.png')}
+                />
+              }
+              uncheckedIcon={
+                <Image
+                  style={{ width: 15, height: 15, tintColor: '#8a6d3b' }}
+                  source={require('../icons/checkbox_unchecked.png')}
+                />
+              }
+              checked={this.state.checkedCustom}
+              onChange={value => this.setState({ checkedCustom: value })}
+            />
           }
           topSeparator="full"
           bottomSeparator="full"

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, ScrollView } from 'react-native';
 
 import {
@@ -25,11 +26,12 @@ export default class SegmentedViewExample extends NavigationPage {
   }
 
   selectType() {
-    PullPicker.show('Type', this.items, this.items.indexOf(this.state.type), (
-      item,
-      index,
-    ) =>
-      this.setState({ type: item }));
+    PullPicker.show(
+      'Type',
+      this.items,
+      this.items.indexOf(this.state.type),
+      (item, index) => this.setState({ type: item })
+    );
   }
 
   renderPage() {

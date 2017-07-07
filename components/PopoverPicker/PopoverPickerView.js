@@ -1,9 +1,10 @@
-import React, { Component, PropTypes } from "react";
-import { View, ScrollView } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ScrollView } from 'react-native';
 
-import Theme from "../../themes/Theme";
-import Overlay from "../Overlay";
-import PopoverPickerItem from "./PopoverPickerItem";
+import Theme from '../../themes/Theme';
+import Overlay from '../Overlay';
+import PopoverPickerItem from './PopoverPickerItem';
 
 export default class PopoverPickerView extends Overlay.PopoverView {
   static propTypes = {
@@ -12,15 +13,15 @@ export default class PopoverPickerView extends Overlay.PopoverView {
     selectedIndex: PropTypes.number,
     getItemText: PropTypes.func, //(item, index) return display text of item, item=items[index], use item when it's null
     shadow: PropTypes.bool,
-    onSelected: PropTypes.func //(item, index)
+    onSelected: PropTypes.func, //(item, index)
   };
 
   static defaultProps = {
     ...Overlay.PopoverView.defaultProps,
-    direction: "down",
-    align: "center",
+    direction: 'down',
+    align: 'center',
     showArrow: false,
-    shadow: true
+    shadow: true,
   };
 
   static Item = PopoverPickerItem;
@@ -48,14 +49,14 @@ export default class PopoverPickerView extends Overlay.PopoverView {
       minWidth: Theme.poppMinWidth,
       maxWidth: Theme.poppMaxWidth,
       minHeight: Theme.poppMinHeight,
-      maxHeight: Theme.poppMaxHeight
+      maxHeight: Theme.poppMaxHeight,
     };
     if (shadow) {
       Object.assign(pickerStyle, {
         shadowColor: Theme.popShadowColor,
         shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.5,
-        shadowRadius: 2
+        shadowRadius: 2,
       });
     }
     popoverStyle = [pickerStyle].concat(popoverStyle);
@@ -67,14 +68,14 @@ export default class PopoverPickerView extends Overlay.PopoverView {
     children = (
       <ScrollView>
         {items &&
-          items.map((item, index) => (
+          items.map((item, index) =>
             <this.constructor.Item
-              key={"item" + index}
+              key={'item' + index}
               title={getItemText ? getItemText(item, index) : item}
               selected={index === selectedIndex}
               onPress={() => this.onItemPress(index)}
             />
-          ))}
+          )}
       </ScrollView>
     );
 
@@ -86,7 +87,7 @@ export default class PopoverPickerView extends Overlay.PopoverView {
       selectedIndex,
       getItemText,
       children,
-      ...others
+      ...others,
     };
 
     super.buildProps();

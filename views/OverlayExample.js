@@ -1,11 +1,12 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   Image,
   ScrollView,
   TouchableWithoutFeedback,
-  Dimensions
-} from "react-native";
+  Dimensions,
+} from 'react-native';
 
 import {
   Theme,
@@ -14,14 +15,14 @@ import {
   Overlay,
   Label,
   Button,
-  Checkbox
-} from "widow-ui";
+  Checkbox,
+} from 'widow-ui';
 
 export default class OverlayExample extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "Overlay",
-    showBackButton: true
+    title: 'Overlay',
+    showBackButton: true,
   };
 
   constructor(props) {
@@ -29,24 +30,24 @@ export default class OverlayExample extends NavigationPage {
     Object.assign(this.state, {
       black: true,
       shadow: false,
-      showArrow: true
+      showArrow: true,
     });
   }
 
   showDefault(transparent, modal, text) {
     let overlayView = (
       <Overlay.View
-        style={{ alignItems: "center", justifyContent: "center" }}
+        style={{ alignItems: 'center', justifyContent: 'center' }}
         modal={modal}
         overlayOpacity={transparent ? 0 : null}
-        ref={v => this.overlayView = v}
+        ref={v => (this.overlayView = v)}
       >
         <View
           style={{
-            backgroundColor: transparent ? "#333" : Theme.defaultColor,
+            backgroundColor: transparent ? '#333' : Theme.defaultColor,
             padding: 40,
             borderRadius: 15,
-            alignItems: "center"
+            alignItems: 'center',
           }}
         >
           <Label size="xl" text={text} type="danger" />
@@ -66,10 +67,10 @@ export default class OverlayExample extends NavigationPage {
   showPop(type, modal, text) {
     let overlayView = (
       <Overlay.PopView
-        style={{ alignItems: "center", justifyContent: "center" }}
+        style={{ alignItems: 'center', justifyContent: 'center' }}
         type={type}
         modal={modal}
-        ref={v => this.overlayPopView = v}
+        ref={v => (this.overlayPopView = v)}
       >
         <View
           style={{
@@ -77,8 +78,8 @@ export default class OverlayExample extends NavigationPage {
             minWidth: 260,
             minHeight: 180,
             borderRadius: 15,
-            justifyContent: "center",
-            alignItems: "center"
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <Label type="title" size="xl" text={text} />
@@ -100,11 +101,11 @@ export default class OverlayExample extends NavigationPage {
     fromView.measureInWindow((x, y, width, height) => {
       let overlayView = (
         <Overlay.PopView
-          style={{ alignItems: "center", justifyContent: "center" }}
+          style={{ alignItems: 'center', justifyContent: 'center' }}
           overlayOpacity={1}
           type="custom"
           customBounds={{ x, y, width, height }}
-          ref={v => this.customPopView = v}
+          ref={v => (this.customPopView = v)}
         >
           <TouchableWithoutFeedback
             onPress={() => this.customPopView && this.customPopView.close()}
@@ -122,15 +123,15 @@ export default class OverlayExample extends NavigationPage {
       <Overlay.PullView
         side={side}
         modal={modal}
-        ref={v => this.overlayPullView = v}
+        ref={v => (this.overlayPullView = v)}
       >
         <View
           style={{
             backgroundColor: Theme.defaultColor,
             minWidth: 300,
             minHeight: 260,
-            justifyContent: "center",
-            alignItems: "center"
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <Label type="title" size="xl" text={text} />
@@ -151,21 +152,21 @@ export default class OverlayExample extends NavigationPage {
   showPopover(view, direction, align) {
     let { black, shadow, showArrow } = this.state;
     let blackStyle = {
-      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
       paddingTop: 8,
       paddingBottom: 8,
       paddingLeft: 12,
-      paddingRight: 12
+      paddingRight: 12,
     };
     let whiteStyle = {
       ...blackStyle,
-      backgroundColor: Theme.defaultColor
+      backgroundColor: Theme.defaultColor,
     };
     let shadowStyle = {
-      shadowColor: "#777",
+      shadowColor: '#777',
       shadowOffset: { width: 1, height: 1 },
       shadowOpacity: 0.5,
-      shadowRadius: 2
+      shadowRadius: 2,
     };
     let popoverStyle = []
       .concat(black ? blackStyle : whiteStyle)
@@ -183,9 +184,9 @@ export default class OverlayExample extends NavigationPage {
           showArrow={showArrow}
         >
           <Label
-            style={{ color: black ? "#fff" : "#000" }}
+            style={{ color: black ? '#fff' : '#000' }}
             size="lg"
-            text={direction + " " + align}
+            text={direction + ' ' + align}
           />
         </Overlay.PopoverView>
       );
@@ -198,18 +199,18 @@ export default class OverlayExample extends NavigationPage {
       <Overlay.PullView modal={false}>
         <View
           style={{
-            backgroundColor: "#fff",
+            backgroundColor: '#fff',
             minWidth: 200,
             minHeight: 260,
-            justifyContent: "center",
-            alignItems: "center"
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <Label type="title" size="xl" text="Overlay" />
           <View style={{ height: 60 }} />
           <Button
             title="New overlay"
-            onPress={() => this.showDefault(false, true, "New overlay")}
+            onPress={() => this.showDefault(false, true, 'New overlay')}
           />
         </View>
       </Overlay.PullView>
@@ -218,60 +219,60 @@ export default class OverlayExample extends NavigationPage {
   }
 
   renderPage() {
-    let img = require("../images/faircup.jpg");
+    let img = require('../images/faircup.jpg');
     return (
       <ScrollView style={{ flex: 1 }}>
         <View style={{ height: 20 }} />
         <ListRow
           title="Transparent"
-          onPress={() => this.showDefault(true, false, "Transparent")}
+          onPress={() => this.showDefault(true, false, 'Transparent')}
           topSeparator="full"
         />
         <ListRow
           title="Translucent"
-          onPress={() => this.showDefault(false, false, "Translucent")}
+          onPress={() => this.showDefault(false, false, 'Translucent')}
         />
         <ListRow
           title="Translucent modal"
-          onPress={() => this.showDefault(false, true, "Translucent modal")}
+          onPress={() => this.showDefault(false, true, 'Translucent modal')}
           bottomSeparator="full"
         />
         <View style={{ height: 20 }} />
         <ListRow
           title="Pull from bottom"
-          onPress={() => this.showPull("bottom", false, "Pull from bottom")}
+          onPress={() => this.showPull('bottom', false, 'Pull from bottom')}
           topSeparator="full"
         />
         <ListRow
           title="Pull from top"
-          onPress={() => this.showPull("top", false, "Pull from top")}
+          onPress={() => this.showPull('top', false, 'Pull from top')}
         />
         <ListRow
           title="Pull from left"
-          onPress={() => this.showPull("left", false, "Pull from left")}
+          onPress={() => this.showPull('left', false, 'Pull from left')}
         />
         <ListRow
           title="Pull from right"
-          onPress={() => this.showPull("right", false, "Pull from right")}
+          onPress={() => this.showPull('right', false, 'Pull from right')}
         />
         <ListRow
           title="Pull modal"
-          onPress={() => this.showPull("bottom", true, "Pull modal")}
+          onPress={() => this.showPull('bottom', true, 'Pull modal')}
           bottomSeparator="full"
         />
         <View style={{ height: 20 }} />
         <ListRow
           title="Pop zoom out"
-          onPress={() => this.showPop("zoomOut", false, "Pop zoom out")}
+          onPress={() => this.showPop('zoomOut', false, 'Pop zoom out')}
           topSeparator="full"
         />
         <ListRow
           title="Pop zoom in"
-          onPress={() => this.showPop("zoomIn", false, "Pop zoom in")}
+          onPress={() => this.showPop('zoomIn', false, 'Pop zoom in')}
         />
         <ListRow
           title="Pop modal"
-          onPress={() => this.showPop("zoomOut", true, "Pop modal")}
+          onPress={() => this.showPop('zoomOut', true, 'Pop modal')}
         />
         <ListRow
           title="Pop custom"
@@ -280,7 +281,7 @@ export default class OverlayExample extends NavigationPage {
               style={{ width: 40, height: 40 }}
               source={img}
               resizeMode="cover"
-              ref={v => this.imgView = v}
+              ref={v => (this.imgView = v)}
             />
           }
           onPress={() => this.showPopCustom(img, this.imgView)}
@@ -296,8 +297,8 @@ export default class OverlayExample extends NavigationPage {
                 style={{
                   paddingTop: 16,
                   paddingBottom: 8,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
                 }}
               >
                 <Checkbox
@@ -323,54 +324,54 @@ export default class OverlayExample extends NavigationPage {
               <View
                 style={{
                   paddingTop: 8,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
                 }}
               >
                 <Button
                   title="down start"
                   ref="downstart"
                   onPress={() =>
-                    this.showPopover(this.refs["downstart"], "down", "start")}
+                    this.showPopover(this.refs['downstart'], 'down', 'start')}
                 />
                 <Button
                   title="down center"
                   ref="downcenter"
                   onPress={() =>
-                    this.showPopover(this.refs["downcenter"], "down", "center")}
+                    this.showPopover(this.refs['downcenter'], 'down', 'center')}
                 />
                 <Button
                   title="down end"
                   ref="downend"
                   onPress={() =>
-                    this.showPopover(this.refs["downend"], "down", "end")}
+                    this.showPopover(this.refs['downend'], 'down', 'end')}
                 />
               </View>
               <View
                 style={{
                   paddingTop: 8,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
                 }}
               >
                 <Button
                   title="right start"
                   ref="rightstart"
                   onPress={() =>
-                    this.showPopover(this.refs["rightstart"], "right", "start")}
+                    this.showPopover(this.refs['rightstart'], 'right', 'start')}
                 />
                 <Button
                   title="left start"
                   ref="leftstart"
                   onPress={() =>
-                    this.showPopover(this.refs["leftstart"], "left", "start")}
+                    this.showPopover(this.refs['leftstart'], 'left', 'start')}
                 />
               </View>
               <View
                 style={{
                   paddingTop: 8,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
                 }}
               >
                 <Button
@@ -378,62 +379,62 @@ export default class OverlayExample extends NavigationPage {
                   ref="rightcenter"
                   onPress={() =>
                     this.showPopover(
-                      this.refs["rightcenter"],
-                      "right",
-                      "center"
+                      this.refs['rightcenter'],
+                      'right',
+                      'center'
                     )}
                 />
                 <Button
                   title="left center"
                   ref="leftcenter"
                   onPress={() =>
-                    this.showPopover(this.refs["leftcenter"], "left", "center")}
+                    this.showPopover(this.refs['leftcenter'], 'left', 'center')}
                 />
               </View>
               <View
                 style={{
                   paddingTop: 8,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
                 }}
               >
                 <Button
                   title="right end"
                   ref="rightend"
                   onPress={() =>
-                    this.showPopover(this.refs["rightend"], "right", "end")}
+                    this.showPopover(this.refs['rightend'], 'right', 'end')}
                 />
                 <Button
                   title="left end"
                   ref="leftend"
                   onPress={() =>
-                    this.showPopover(this.refs["leftend"], "left", "end")}
+                    this.showPopover(this.refs['leftend'], 'left', 'end')}
                 />
               </View>
               <View
                 style={{
                   paddingTop: 8,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
                 }}
               >
                 <Button
                   title="up start"
                   ref="upstart"
                   onPress={() =>
-                    this.showPopover(this.refs["upstart"], "up", "start")}
+                    this.showPopover(this.refs['upstart'], 'up', 'start')}
                 />
                 <Button
                   title="up center"
                   ref="upcenter"
                   onPress={() =>
-                    this.showPopover(this.refs["upcenter"], "up", "center")}
+                    this.showPopover(this.refs['upcenter'], 'up', 'center')}
                 />
                 <Button
                   title="up end"
                   ref="upend"
                   onPress={() =>
-                    this.showPopover(this.refs["upend"], "up", "end")}
+                    this.showPopover(this.refs['upend'], 'up', 'end')}
                 />
               </View>
             </View>

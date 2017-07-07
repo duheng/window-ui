@@ -1,19 +1,20 @@
-import React, { Component, PropTypes } from "react";
-import { View, ScrollView } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ScrollView } from 'react-native';
 
-import { NavigationPage, ListRow, SearchInput } from "widow-ui";
+import { NavigationPage, ListRow, SearchInput } from 'widow-ui';
 
 export default class SearchInputExample extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "SearchInput",
-    showBackButton: true
+    title: 'SearchInput',
+    showBackButton: true,
   };
 
   constructor(props) {
     super(props);
     Object.assign(this.state, {
-      valueCustom: null
+      valueCustom: null,
     });
   }
 
@@ -68,10 +69,10 @@ export default class SearchInputExample extends NavigationPage {
               style={{
                 width: 200,
                 height: 40,
-                backgroundColor: "#rgba(238, 169, 91, .1)",
-                borderColor: "#8a6d3b"
+                backgroundColor: '#rgba(238, 169, 91, .1)',
+                borderColor: '#8a6d3b',
               }}
-              inputStyle={{ color: "#8a6d3b", fontSize: 18 }}
+              inputStyle={{ color: '#8a6d3b', fontSize: 18 }}
               iconSize={15}
               value={this.state.valueCustom}
               placeholder="Custom"

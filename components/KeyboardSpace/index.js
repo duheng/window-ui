@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   Platform,
@@ -32,13 +33,13 @@ export default class KeyboardSpace extends Component {
     if (!this.showListener) {
       let name = Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow';
       this.showListener = Keyboard.addListener(name, e =>
-        this.onKeyboardShow(e));
+        this.onKeyboardShow(e)
+      );
     }
     if (!this.hideListener) {
       let name = Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide';
-      this.hideListener = Keyboard.addListener(
-        name,
-        () => this.onKeyboardHide(),
+      this.hideListener = Keyboard.addListener(name, () =>
+        this.onKeyboardHide()
       );
     }
   }
@@ -73,7 +74,8 @@ export default class KeyboardSpace extends Component {
 
   onKeyboardShow(e) {
     if (!e || !e.endCoordinates || !e.endCoordinates.height) return;
-    let height = e.endCoordinates.height +
+    let height =
+      e.endCoordinates.height +
       (this.props.topInsets ? this.props.topInsets : 0);
     this.setState({ keyboardHeight: height });
   }

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
 import Overlay from '../Overlay';
@@ -43,7 +44,7 @@ export default class Toast extends Overlay {
   static message(
     text,
     duration = this.messageDefaultDuration,
-    position = this.messageDefaultPosition,
+    position = this.messageDefaultPosition
   ) {
     return this.show({ text, duration, position });
   }
@@ -51,7 +52,7 @@ export default class Toast extends Overlay {
   static success(
     text,
     duration = this.defaultDuration,
-    position = this.defaultPosition,
+    position = this.defaultPosition
   ) {
     return this.show({ text, duration, position, icon: 'success' });
   }
@@ -59,7 +60,7 @@ export default class Toast extends Overlay {
   static fail(
     text,
     duration = this.defaultDuration,
-    position = this.defaultPosition,
+    position = this.defaultPosition
   ) {
     return this.show({ text, duration, position, icon: 'fail' });
   }
@@ -67,7 +68,7 @@ export default class Toast extends Overlay {
   static smile(
     text,
     duration = this.defaultDuration,
-    position = this.defaultPosition,
+    position = this.defaultPosition
   ) {
     return this.show({ text, duration, position, icon: 'smile' });
   }
@@ -75,7 +76,7 @@ export default class Toast extends Overlay {
   static sad(
     text,
     duration = this.defaultDuration,
-    position = this.defaultPosition,
+    position = this.defaultPosition
   ) {
     return this.show({ text, duration, position, icon: 'sad' });
   }
@@ -83,7 +84,7 @@ export default class Toast extends Overlay {
   static info(
     text,
     duration = this.defaultDuration,
-    position = this.defaultPosition,
+    position = this.defaultPosition
   ) {
     return this.show({ text, duration, position, icon: 'info' });
   }
@@ -91,7 +92,7 @@ export default class Toast extends Overlay {
   static stop(
     text,
     duration = this.defaultDuration,
-    position = this.defaultPosition,
+    position = this.defaultPosition
   ) {
     return this.show({ text, duration, position, icon: 'stop' });
   }

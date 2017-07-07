@@ -1,15 +1,16 @@
 //通过交换内外层的scrollEnabled来实现滚动支持，不可使用，因交替时触摸事件无法传递，且交替后原ScrollView无法弹回原位
 
-import React, { Component, PropTypes } from "react";
-import { StyleSheet, View, Image, ScrollView } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { StyleSheet, View, Image, ScrollView } from 'react-native';
 
-import { NavigationPage, ListRow, SegmentedView, Carousel } from "widow-ui";
+import { NavigationPage, ListRow, SegmentedView, Carousel } from 'widow-ui';
 
 export default class MultiScrollViewExample extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "MultiScrollView",
-    showBackButton: true
+    title: 'MultiScrollView',
+    showBackButton: true,
   };
 
   constructor(props) {
@@ -17,7 +18,7 @@ export default class MultiScrollViewExample extends NavigationPage {
     Object.assign(this.state, {
       width: 0,
       height: 0,
-      outScroll: true
+      outScroll: true,
     });
   }
 
@@ -50,24 +51,24 @@ export default class MultiScrollViewExample extends NavigationPage {
     const { width, height, outScroll } = this.state;
     const headerHeight = 30;
     const items = [
-      "Apple",
-      "Banana",
-      "Cherry",
-      "Durian",
-      "Filbert",
-      "Grape",
-      "Hickory",
-      "Lemon",
-      "Mango",
-      "Apple",
-      "Banana",
-      "Cherry",
-      "Durian",
-      "Filbert",
-      "Grape",
-      "Hickory",
-      "Lemon",
-      "Mango"
+      'Apple',
+      'Banana',
+      'Cherry',
+      'Durian',
+      'Filbert',
+      'Grape',
+      'Hickory',
+      'Lemon',
+      'Mango',
+      'Apple',
+      'Banana',
+      'Cherry',
+      'Durian',
+      'Filbert',
+      'Grape',
+      'Hickory',
+      'Lemon',
+      'Mango',
     ];
     return (
       <ScrollView
@@ -82,17 +83,17 @@ export default class MultiScrollViewExample extends NavigationPage {
           <Image
             style={{ width, height: 238 }}
             resizeMode="cover"
-            source={require("../images/teaset1.jpg")}
+            source={require('../images/teaset1.jpg')}
           />
           <Image
             style={{ width, height: 238 }}
             resizeMode="cover"
-            source={require("../images/teaset2.jpg")}
+            source={require('../images/teaset2.jpg')}
           />
           <Image
             style={{ width, height: 238 }}
             resizeMode="cover"
-            source={require("../images/teaset3.jpg")}
+            source={require('../images/teaset3.jpg')}
           />
         </Carousel>
         <SegmentedView style={{ height: height }}>
@@ -103,9 +104,9 @@ export default class MultiScrollViewExample extends NavigationPage {
               scrollEventThrottle={16}
               onScroll={e => this.onInnerScrollViewScroll(e)}
             >
-              {items.map((item, index) => (
-                <ListRow title={item} key={"0" + index} />
-              ))}
+              {items.map((item, index) =>
+                <ListRow title={item} key={'0' + index} />
+              )}
             </ScrollView>
           </SegmentedView.Sheet>
           <SegmentedView.Sheet title="two">
@@ -115,9 +116,9 @@ export default class MultiScrollViewExample extends NavigationPage {
               scrollEventThrottle={16}
               onScroll={e => this.onInnerScrollViewScroll(e)}
             >
-              {items.map((item, index) => (
-                <ListRow title={item} key={"0" + index} />
-              ))}
+              {items.map((item, index) =>
+                <ListRow title={item} key={'0' + index} />
+              )}
             </ScrollView>
           </SegmentedView.Sheet>
         </SegmentedView>

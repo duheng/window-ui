@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ScrollView } from 'react-native';
 
 import { NavigationPage, ListRow, PullPicker } from 'widow-ui';
@@ -30,11 +31,12 @@ export default class PullPickerExample extends NavigationPage {
   }
 
   show() {
-    PullPicker.show('Select item', this.items, this.state.selectedIndex, (
-      item,
-      index,
-    ) =>
-      this.setState({ selectedIndex: index }));
+    PullPicker.show(
+      'Select item',
+      this.items,
+      this.state.selectedIndex,
+      (item, index) => this.setState({ selectedIndex: index })
+    );
   }
 
   showModal() {
@@ -43,7 +45,7 @@ export default class PullPickerExample extends NavigationPage {
       this.items,
       this.state.modalSelectedIndex,
       (item, index) => this.setState({ modalSelectedIndex: index }),
-      { modal: true },
+      { modal: true }
     );
   }
 

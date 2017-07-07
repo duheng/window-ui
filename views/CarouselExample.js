@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   View,
@@ -31,7 +32,7 @@ export default class CarouselExample extends NavigationPage {
       'Control',
       this.items,
       this.items.indexOf(this.state.control),
-      (item, index) => this.setState({ control: item }),
+      (item, index) => this.setState({ control: item })
     );
   }
 
@@ -44,30 +45,26 @@ export default class CarouselExample extends NavigationPage {
         <Carousel.Control
           style={{ alignItems: 'flex-end' }}
           dot={
-            (
-              <Text
-                style={{
-                  backgroundColor: 'rgba(0, 0, 0, 0)',
-                  color: '#5bc0de',
-                  padding: 4,
-                }}
-              >
-                □
-              </Text>
-            )
+            <Text
+              style={{
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                color: '#5bc0de',
+                padding: 4,
+              }}
+            >
+              □
+            </Text>
           }
           activeDot={
-            (
-              <Text
-                style={{
-                  backgroundColor: 'rgba(0, 0, 0, 0)',
-                  color: '#5bc0de',
-                  padding: 4,
-                }}
-              >
-                ■
-              </Text>
-            )
+            <Text
+              style={{
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                color: '#5bc0de',
+                padding: 4,
+              }}
+            >
+              ■
+            </Text>
           }
         />
       );

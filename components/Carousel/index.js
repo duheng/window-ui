@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, ScrollView } from 'react-native';
 
 import Theme from '../../themes/Theme';
@@ -110,13 +111,10 @@ export default class Carousel extends Component {
   setupTimer() {
     this.removeTimer();
     if (!this.carousel) return;
-    this.timer = setTimeout(
-      () => {
-        this.timer = null;
-        this.scrollToNextCard();
-      },
-      this.props.interval,
-    );
+    this.timer = setTimeout(() => {
+      this.timer = null;
+      this.scrollToNextCard();
+    }, this.props.interval);
   }
 
   //删除定时器
@@ -174,7 +172,8 @@ export default class Carousel extends Component {
         cardIndex = this.cardCount - 2;
         this.scrollToCard(cardIndex, false);
       } else if (
-        cardIndex >= this.cardCount - 1 && x >= (this.cardCount - 1) * width
+        cardIndex >= this.cardCount - 1 &&
+        x >= (this.cardCount - 1) * width
       ) {
         cardIndex = 1;
         this.scrollToCard(cardIndex, false);
@@ -196,7 +195,8 @@ export default class Carousel extends Component {
         cardIndex = this.cardCount - 2;
         this.scrollToCard(cardIndex, false);
       } else if (
-        cardIndex >= this.cardCount - 1 && y >= (this.cardCount - 1) * height
+        cardIndex >= this.cardCount - 1 &&
+        y >= (this.cardCount - 1) * height
       ) {
         cardIndex = 1;
         this.scrollToCard(cardIndex, false);
@@ -237,13 +237,14 @@ export default class Carousel extends Component {
       cards.push(
         <View style={cardStyle} key={'card-head'}>
           {children[children.length - 1]}
-        </View>,
+        </View>
       );
     children.map((item, index) =>
-      cards.push(<View style={cardStyle} key={'card' + index}>{item}</View>));
+      cards.push(<View style={cardStyle} key={'card' + index}>{item}</View>)
+    );
     this.cycle &&
       cards.push(
-        <View style={cardStyle} key={'card-tail'}>{children[0]}</View>,
+        <View style={cardStyle} key={'card-tail'}>{children[0]}</View>
       );
     return cards;
   }
@@ -264,8 +265,7 @@ export default class Carousel extends Component {
       let fixStyle;
       if (horizontal)
         fixStyle = { width: width * this.cardCount, height: height };
-      else
-        fixStyle = { width: width, height: height * this.cardCount };
+      else fixStyle = { width: width, height: height * this.cardCount };
       contentContainerStyle = [contentContainerStyle, fixStyle];
     }
     if (React.isValidElement(control)) {

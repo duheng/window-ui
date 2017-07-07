@@ -1,20 +1,21 @@
-import React, { Component, PropTypes } from "react";
-import { Animated, View } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Animated, View } from 'react-native';
 
-import Theme from "../../themes/Theme";
-import OverlayView from "./OverlayView";
+import Theme from '../../themes/Theme';
+import OverlayView from './OverlayView';
 
 export default class OverlayPullView extends OverlayView {
   static propTypes = {
     ...OverlayView.propTypes,
-    side: PropTypes.oneOf(["top", "bottom", "left", "right"]),
-    containerStyle: View.propTypes.style
+    side: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+    containerStyle: View.propTypes.style,
   };
 
   static defaultProps = {
     ...OverlayView.defaultProps,
-    side: "bottom",
-    animated: true
+    side: 'bottom',
+    animated: true,
   };
 
   constructor(props) {
@@ -22,7 +23,7 @@ export default class OverlayPullView extends OverlayView {
     this.viewLayout = { x: 0, y: 0, width: 0, height: 0 };
     Object.assign(this.state, {
       marginValue: new Animated.Value(0),
-      showed: false
+      showed: false,
     });
   }
 
@@ -31,7 +32,7 @@ export default class OverlayPullView extends OverlayView {
     animates.push(
       Animated.spring(this.state.marginValue, {
         toValue: 0,
-        friction: 9
+        friction: 9,
       })
     );
     return animates;
@@ -42,7 +43,7 @@ export default class OverlayPullView extends OverlayView {
     animates.push(
       Animated.spring(this.state.marginValue, {
         toValue: this.marginSize,
-        friction: 9
+        friction: 9,
       })
     );
     return animates;
@@ -54,7 +55,7 @@ export default class OverlayPullView extends OverlayView {
 
   get marginSize() {
     let { side } = this.props;
-    if (side === "left" || side === "right") return -this.viewLayout.width;
+    if (side === 'left' || side === 'right') return -this.viewLayout.width;
     else return -this.viewLayout.height;
   }
 
@@ -81,35 +82,35 @@ export default class OverlayPullView extends OverlayView {
     let sideStyle, contentStyle;
     //Set flexDirection so that the content view will fill the side
     switch (side) {
-      case "top":
+      case 'top':
         sideStyle = {
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "stretch"
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          alignItems: 'stretch',
         };
         contentStyle = { marginTop: this.state.marginValue };
         break;
-      case "left":
+      case 'left':
         sideStyle = {
-          flexDirection: "row",
-          justifyContent: "flex-start",
-          alignItems: "stretch"
+          flexDirection: 'row',
+          justifyContent: 'flex-start',
+          alignItems: 'stretch',
         };
         contentStyle = { marginLeft: this.state.marginValue };
         break;
-      case "right":
+      case 'right':
         sideStyle = {
-          flexDirection: "row",
-          justifyContent: "flex-end",
-          alignItems: "stretch"
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          alignItems: 'stretch',
         };
         contentStyle = { marginRight: this.state.marginValue };
         break;
       default:
         sideStyle = {
-          flexDirection: "column",
-          justifyContent: "flex-end",
-          alignItems: "stretch"
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          alignItems: 'stretch',
         };
         contentStyle = { marginBottom: this.state.marginValue };
     }
@@ -117,8 +118,8 @@ export default class OverlayPullView extends OverlayView {
     contentStyle.opacity = this.state.showed ? 1 : 0;
     containerStyle = [
       {
-        backgroundColor: Theme.defaultColor //rgba(0, 0, 0, 0)',
-      }
+        backgroundColor: Theme.defaultColor, //rgba(0, 0, 0, 0)',
+      },
     ]
       .concat(containerStyle)
       .concat(contentStyle);

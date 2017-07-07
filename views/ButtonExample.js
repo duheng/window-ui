@@ -1,13 +1,14 @@
-import React, { Component, PropTypes } from "react";
-import { View, ScrollView, Text, Image } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ScrollView, Text, Image } from 'react-native';
 
-import { NavigationPage, ListRow, Button, Label } from "widow-ui";
+import { NavigationPage, ListRow, Button, Label } from 'widow-ui';
 
 export default class ButtonExample extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "Button",
-    showBackButton: true
+    title: 'Button',
+    showBackButton: true,
   };
 
   renderPage() {
@@ -79,16 +80,16 @@ export default class ButtonExample extends NavigationPage {
           detail={
             <Button
               style={{
-                backgroundColor: "#rgba(238, 169, 91, .1)",
-                borderColor: "#8a6d3b"
+                backgroundColor: '#rgba(238, 169, 91, .1)',
+                borderColor: '#8a6d3b',
               }}
             >
               <Image
-                style={{ width: 16, height: 16, tintColor: "#8a6d3b" }}
-                source={require("../icons/search.png")}
+                style={{ width: 16, height: 16, tintColor: '#8a6d3b' }}
+                source={require('../icons/search.png')}
               />
               <Label
-                style={{ color: "#8a6d3b", fontSize: 16, paddingLeft: 8 }}
+                style={{ color: '#8a6d3b', fontSize: 16, paddingLeft: 8 }}
                 text="Search"
               />
             </Button>

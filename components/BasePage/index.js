@@ -1,9 +1,10 @@
-import React, { Component, PropTypes } from "react";
-import ReactNative, { Platform, View } from "react-native";
-import TeaNavigator from "../TeaNavigator";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ReactNative, { Platform, View } from 'react-native';
+import TeaNavigator from '../TeaNavigator';
 
-import Theme from "../../themes/Theme";
-import KeyboardSpace from "../KeyboardSpace";
+import Theme from '../../themes/Theme';
+import KeyboardSpace from '../KeyboardSpace';
 
 export default class BasePage extends Component {
   static propTypes = {
@@ -11,33 +12,33 @@ export default class BasePage extends Component {
     title: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
     scene: PropTypes.object, //转场效果
     autoKeyboardInsets: PropTypes.bool, //自动插入键盘占用空间
-    keyboardTopInsets: PropTypes.number //插入键盘占用空间顶部偏移，用于底部有固定占用空间(如TabNavigator)的页面
+    keyboardTopInsets: PropTypes.number, //插入键盘占用空间顶部偏移，用于底部有固定占用空间(如TabNavigator)的页面
   };
 
   static defaultProps = {
     ...View.defaultProps,
     scene: TeaNavigator.SceneConfigs.Replace,
-    autoKeyboardInsets: Platform.OS === "ios",
-    keyboardTopInsets: 0
+    autoKeyboardInsets: Platform.OS === 'ios',
+    keyboardTopInsets: 0,
   };
 
   static contextTypes = {
-    navigator: PropTypes.func
+    navigator: PropTypes.func,
   };
 
   constructor(props) {
     super(props);
     this.didMount = false; //代替被废弃的isMounted
     this.state = {
-      isFocused: false
+      isFocused: false,
     };
   }
 
   componentWillMount() {
-    if (!this.backListener && Platform.OS === "android") {
+    if (!this.backListener && Platform.OS === 'android') {
       const BackHandler = ReactNative.BackHandler || ReactNative.BackAndroid;
       this.backListener = BackHandler.addEventListener(
-        "hardwareBackPress",
+        'hardwareBackPress',
         () => this.onHardwareBackPress()
       );
     }
@@ -58,7 +59,7 @@ export default class BasePage extends Component {
   get navigator() {
     if (!this.context.navigator) {
       console.error(
-        "The root component is NOT TeaNavigator, then you can not use BasePage.navigator."
+        'The root component is NOT TeaNavigator, then you can not use BasePage.navigator.'
       );
       return null;
     }
@@ -90,8 +91,8 @@ export default class BasePage extends Component {
     style = [
       {
         flex: 1,
-        backgroundColor: Theme.pageColor
-      }
+        backgroundColor: Theme.pageColor,
+      },
     ].concat(style);
     this.props = { style, ...others };
   }

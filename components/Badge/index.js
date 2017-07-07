@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 
 import Theme from '../../themes/Theme';
@@ -72,8 +73,7 @@ export default class Badge extends Component {
       },
     ].concat(style);
 
-    if (type === 'dot')
-      children = null;
+    if (type === 'dot') children = null;
     else if (count || count === 0) {
       countStyle = [
         {

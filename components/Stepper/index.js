@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
-import Theme from "../../themes/Theme";
+import Theme from '../../themes/Theme';
 
 export default class Stepper extends Component {
   static propTypes = {
@@ -18,18 +19,18 @@ export default class Stepper extends Component {
     showSeparator: PropTypes.bool,
     disabled: PropTypes.bool,
     editable: PropTypes.bool,
-    onChange: PropTypes.func //(value)
+    onChange: PropTypes.func, //(value)
   };
 
   static defaultProps = {
     ...View.defaultProps,
     defaultValue: 0,
     step: 1,
-    subButton: "－",
-    addButton: "＋",
+    subButton: '－',
+    addButton: '＋',
     showSeparator: true,
     disabled: false,
-    editable: true
+    editable: true,
   };
 
   constructor(props) {
@@ -38,7 +39,7 @@ export default class Stepper extends Component {
       value: props.value
         ? props.value
         : props.defaultValue ? props.defaultValue : 0,
-      height: null
+      height: null,
     };
   }
 
@@ -61,32 +62,32 @@ export default class Stepper extends Component {
         borderColor: Theme.stepperBorderColor,
         borderWidth: Theme.stepperBorderWidth,
         borderRadius: Theme.stepperBorderRadius,
-        flexDirection: "row",
-        alignItems: "center",
-        overflow: "hidden"
-      }
+        flexDirection: 'row',
+        alignItems: 'center',
+        overflow: 'hidden',
+      },
     ].concat(style);
 
     valueStyle = [
       {
         color: Theme.stepperTextColor,
         fontSize: Theme.stepperFontSize,
-        textAlign: "center",
+        textAlign: 'center',
         minWidth: Theme.stepperValueMinWidth,
-        paddingHorizontal: Theme.stepperValuePaddingHorizontal
-      }
+        paddingHorizontal: Theme.stepperValuePaddingHorizontal,
+      },
     ].concat(valueStyle);
 
     let btnStyle = {
       width: Theme.stepperButtonWidth,
       height: Theme.stepperButtonHeight,
-      alignItems: "center",
-      justifyContent: "center"
+      alignItems: 'center',
+      justifyContent: 'center',
     };
 
     let btnTextStyle = {
       color: Theme.stepperBtnTextColor,
-      fontSize: Theme.stepperBtnFontSize
+      fontSize: Theme.stepperBtnFontSize,
     };
 
     if (!React.isValidElement(subButton)) {
@@ -106,7 +107,7 @@ export default class Stepper extends Component {
     }
 
     if (disabled) {
-      pointerEvents = "none";
+      pointerEvents = 'none';
       opacity = Theme.stepperDisabledOpacity;
     }
 
@@ -119,14 +120,14 @@ export default class Stepper extends Component {
       editable,
       pointerEvents,
       opacity,
-      ...others
+      ...others,
     };
   }
 
   onLayout(e) {
     if (this.state.height === null) {
       this.setState({
-        height: e.nativeEvent.layout.height
+        height: e.nativeEvent.layout.height,
       });
     }
     this.props.onLayout && this.props.onLayout(e);
@@ -179,7 +180,7 @@ export default class Stepper extends Component {
           style={{
             backgroundColor: fs.borderColor,
             width: fs.borderWidth,
-            height: this.state.height
+            height: this.state.height,
           }}
         />
       );

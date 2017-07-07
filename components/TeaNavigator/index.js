@@ -1,15 +1,16 @@
-import React, { Component, PropTypes } from "react";
-import { View, Text } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, Text } from 'react-native';
 
-import { Navigator } from "react-native-deprecated-custom-components";
-import TeaNavigatorScene from "./TeaNavigatorScene";
+import { Navigator } from 'react-native-deprecated-custom-components';
+import TeaNavigatorScene from './TeaNavigatorScene';
 
 //replace NavigatorScene, optimize the effect of the scene
 Navigator.SceneConfigs = TeaNavigatorScene;
 
 export default class TeaNavigator extends Component {
   static propTypes = {
-    rootView: PropTypes.element
+    rootView: PropTypes.element,
   };
 
   static defaultProps = {
@@ -17,20 +18,20 @@ export default class TeaNavigator extends Component {
       <View
         style={{
           flex: 1,
-          backgroundColor: "white",
-          justifyContent: "center",
-          alignItems: "center"
+          backgroundColor: 'white',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <Text style={{ fontSize: 36, padding: 10 }}>Widow UI</Text>
       </View>
-    )
+    ),
   };
 
   static SceneConfigs = TeaNavigatorScene;
 
   static childContextTypes = {
-    navigator: PropTypes.func
+    navigator: PropTypes.func,
   };
 
   getChildContext() {
@@ -40,11 +41,11 @@ export default class TeaNavigator extends Component {
   render() {
     const { rootView } = this.props;
     return (
-      <View style={{ flex: 1, backgroundColor: "black" }}>
+      <View style={{ flex: 1, backgroundColor: 'black' }}>
         <Navigator
           initialRoute={{
             view: rootView, //the view element, like <View />
-            scene: null //navigate scene, null able
+            scene: null, //navigate scene, null able
           }}
           configureScene={route => {
             if (route.scene) return route.scene;
@@ -54,8 +55,8 @@ export default class TeaNavigator extends Component {
           renderScene={(route, navigator) => {
             this.navigator = navigator;
             return React.cloneElement(route.view, {
-              ref: v => route.viewRef = v,
-              navigator
+              ref: v => (route.viewRef = v),
+              navigator,
             });
           }}
           onDidFocus={route => {
@@ -69,7 +70,7 @@ export default class TeaNavigator extends Component {
               route.viewRef.onWillFocus();
           }}
           sceneStyle={null}
-          ref={v => this.navigator = v}
+          ref={v => (this.navigator = v)}
         />
       </View>
     );

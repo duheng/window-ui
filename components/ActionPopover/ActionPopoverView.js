@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Theme from '../../themes/Theme';
 import Overlay from '../Overlay';
 import ActionPopoverItem from './ActionPopoverItem';
@@ -11,7 +11,7 @@ export default class ActionPopoverView extends Overlay.PopoverView {
       PropTypes.shape({
         title: PropTypes.string,
         onPress: PropTypes.func,
-      }),
+      })
     ).isRequired,
   };
 
@@ -61,7 +61,7 @@ export default class ActionPopoverView extends Overlay.PopoverView {
           title={item.title}
           leftSeparator={i !== 0}
           onPress={() => this.onItemPress(item)}
-        />,
+        />
       );
     }
 

@@ -1,19 +1,20 @@
-import React, { Component, PropTypes } from "react";
-import { View, ScrollView, Text } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ScrollView, Text } from 'react-native';
 
-import { NavigationPage, ListRow, Stepper } from "widow-ui";
+import { NavigationPage, ListRow, Stepper } from 'widow-ui';
 
 export default class StepperExample extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "Stepper",
-    showBackButton: true
+    title: 'Stepper',
+    showBackButton: true,
   };
 
   constructor(props) {
     super(props);
     Object.assign(this.state, {
-      valueCustom: 1
+      valueCustom: 1,
     });
   }
 
@@ -32,7 +33,7 @@ export default class StepperExample extends NavigationPage {
             <Stepper
               defaultValue={0.8}
               step={0.005}
-              valueFormat={v => (v * 100).toFixed(1) + "%"}
+              valueFormat={v => (v * 100).toFixed(1) + '%'}
               valueStyle={{ minWidth: 60 }}
             />
           }
@@ -56,39 +57,39 @@ export default class StepperExample extends NavigationPage {
             <Stepper
               style={{ borderWidth: 0 }}
               value={this.state.valueCustom}
-              valueStyle={{ color: "#8a6d3b" }}
+              valueStyle={{ color: '#8a6d3b' }}
               min={0}
               max={100}
               subButton={
                 <View
                   style={{
-                    backgroundColor: "#rgba(238, 169, 91, .1)",
-                    borderColor: "#8a6d3b",
+                    backgroundColor: '#rgba(238, 169, 91, .1)',
+                    borderColor: '#8a6d3b',
                     borderWidth: 1,
                     borderRadius: 4,
                     width: 20,
                     height: 20,
-                    alignItems: "center",
-                    justifyContent: "center"
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
-                  <Text style={{ color: "#8a6d3b" }}>－</Text>
+                  <Text style={{ color: '#8a6d3b' }}>－</Text>
                 </View>
               }
               addButton={
                 <View
                   style={{
-                    backgroundColor: "#rgba(238, 169, 91, .1)",
-                    borderColor: "#8a6d3b",
+                    backgroundColor: '#rgba(238, 169, 91, .1)',
+                    borderColor: '#8a6d3b',
                     borderWidth: 1,
                     borderRadius: 4,
                     width: 20,
                     height: 20,
-                    alignItems: "center",
-                    justifyContent: "center"
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
-                  <Text style={{ color: "#8a6d3b" }}>＋</Text>
+                  <Text style={{ color: '#8a6d3b' }}>＋</Text>
                 </View>
               }
               showSeparator={false}

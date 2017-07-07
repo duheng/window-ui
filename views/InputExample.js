@@ -1,24 +1,25 @@
-import React, { Component, PropTypes } from "react";
-import { View, ScrollView, Text } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ScrollView, Text } from 'react-native';
 
-import { NavigationPage, ListRow, Input, Label } from "widow-ui";
+import { NavigationPage, ListRow, Input, Label } from 'widow-ui';
 
 export default class InputExample extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "Input",
-    showBackButton: true
+    title: 'Input',
+    showBackButton: true,
   };
 
   constructor(props) {
     super(props);
     Object.assign(this.state, {
-      valueSM: "Size sm",
-      valueMD: "Size md",
-      valueLG: "Size lg",
-      valueReadonly: "Readonly",
-      valueDisable: "Disable",
-      valueCustom: "Custom"
+      valueSM: 'Size sm',
+      valueMD: 'Size md',
+      valueLG: 'Size lg',
+      valueReadonly: 'Readonly',
+      valueDisable: 'Disable',
+      valueCustom: 'Custom',
     });
   }
 
@@ -91,10 +92,10 @@ export default class InputExample extends NavigationPage {
             <Input
               style={{
                 width: 200,
-                backgroundColor: "#rgba(238, 169, 91, .1)",
-                borderColor: "#8a6d3b",
-                color: "#8a6d3b",
-                textAlign: "right"
+                backgroundColor: '#rgba(238, 169, 91, .1)',
+                borderColor: '#8a6d3b',
+                color: '#8a6d3b',
+                textAlign: 'right',
               }}
               value={this.state.valueCustom}
               onChangeText={text => this.setState({ valueCustom: text })}

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View } from 'react-native';
 
 import Theme from '../../themes/Theme';
@@ -375,7 +376,7 @@ export default class Popover extends Component {
         overflow: 'hidden',
         backgroundColor: 'rgba(0, 0, 0, 0)',
       },
-      headerLayouts[arrow],
+      headerLayouts[arrow]
     );
     let arrowStyle = Object.assign(
       {
@@ -386,7 +387,7 @@ export default class Popover extends Component {
         borderTopWidth: borderWidth,
         borderLeftWidth: borderWidth,
       },
-      arrowLayouts[arrow],
+      arrowLayouts[arrow]
     );
     let contentStyle = this.filterContentStyle(fs);
     let popoverStyle = [

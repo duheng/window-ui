@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { StyleSheet, View, ScrollView } from 'react-native';
 
 import {
   NavigationPage,
@@ -8,19 +9,19 @@ import {
   TabView,
   Label,
   PullPicker,
-  TeaNavigator
-} from "widow-ui";
+  TeaNavigator,
+} from 'widow-ui';
 
 export default class TabViewExample extends BasePage {
   static defaultProps = {
     ...BasePage.defaultProps,
-    scene: TeaNavigator.SceneConfigs.PushFromRight
+    scene: TeaNavigator.SceneConfigs.PushFromRight,
   };
 
   constructor(props) {
     super(props);
     Object.assign(this.state, {
-      type: "projector"
+      type: 'projector',
     });
   }
 
@@ -29,8 +30,8 @@ export default class TabViewExample extends BasePage {
       <TabView style={{ flex: 1 }} type={this.state.type}>
         <TabView.Sheet
           title="Home"
-          icon={require("../icons/home.png")}
-          activeIcon={require("../icons/home_active.png")}
+          icon={require('../icons/home.png')}
+          activeIcon={require('../icons/home_active.png')}
         >
           <HomePage
             type={this.state.type}
@@ -39,8 +40,8 @@ export default class TabViewExample extends BasePage {
         </TabView.Sheet>
         <TabView.Sheet
           title="Me"
-          icon={require("../icons/me.png")}
-          activeIcon={require("../icons/me_active.png")}
+          icon={require('../icons/me.png')}
+          activeIcon={require('../icons/me_active.png')}
           badge={1}
         >
           <MePage />
@@ -53,15 +54,15 @@ export default class TabViewExample extends BasePage {
 class HomePage extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "Home",
-    showBackButton: true
+    title: 'Home',
+    showBackButton: true,
   };
 
   selectType() {
     let { type, onChangeType } = this.props;
-    let items = ["projector", "carousel"];
+    let items = ['projector', 'carousel'];
     PullPicker.show(
-      "Type",
+      'Type',
       items,
       items.indexOf(this.props.type),
       (item, index) => onChangeType && onChangeType(item)
@@ -87,13 +88,13 @@ class HomePage extends NavigationPage {
 class MePage extends NavigationPage {
   static defaultProps = {
     ...NavigationPage.defaultProps,
-    title: "Me",
-    showBackButton: false
+    title: 'Me',
+    showBackButton: false,
   };
 
   renderPage() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Label type="detail" size="xl" text={this.props.title} />
       </View>
     );

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   View,
@@ -209,7 +210,7 @@ export default class Select extends Component {
         items,
         this.selectedIndex,
         onSelected,
-        { getItemText, align: 'end' },
+        { getItemText, align: 'end' }
       );
     });
   }
@@ -248,7 +249,7 @@ export default class Select extends Component {
       <ViewClass
         style={style}
         disabled={disabled || !editable}
-        onPress={e => onPress ? onPress(e) : this.showPicker()}
+        onPress={e => (onPress ? onPress(e) : this.showPicker())}
         onLayout={e => {
           this.measureInWindow((x, y, width, height) => {
             this.popoverView &&

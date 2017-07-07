@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   View,
@@ -35,7 +36,7 @@ export default class PanResponderExample extends NavigationPage {
         console.log(
           'onStartShouldSetPanResponder',
           e.nativeEvent,
-          JSON.stringify(gestureState),
+          JSON.stringify(gestureState)
         );
         return true;
       },
@@ -43,7 +44,7 @@ export default class PanResponderExample extends NavigationPage {
         console.log(
           'onStartShouldSetPanResponderCapture',
           e.nativeEvent,
-          JSON.stringify(gestureState),
+          JSON.stringify(gestureState)
         );
         return false;
       },
@@ -51,7 +52,7 @@ export default class PanResponderExample extends NavigationPage {
         console.log(
           'onMoveShouldSetPanResponder',
           e.nativeEvent,
-          JSON.stringify(gestureState),
+          JSON.stringify(gestureState)
         );
         return true;
       },
@@ -59,7 +60,7 @@ export default class PanResponderExample extends NavigationPage {
         console.log(
           'onMoveShouldSetPanResponderCapture',
           e.nativeEvent,
-          JSON.stringify(gestureState),
+          JSON.stringify(gestureState)
         );
         return false;
       },
@@ -67,7 +68,7 @@ export default class PanResponderExample extends NavigationPage {
         console.log(
           'onPanResponderGrant',
           e.nativeEvent,
-          JSON.stringify(gestureState),
+          JSON.stringify(gestureState)
         );
         this.prevTouches = e.nativeEvent.touches;
       },
@@ -79,7 +80,7 @@ export default class PanResponderExample extends NavigationPage {
         console.log(
           'onPanResponderTerminationRequest',
           e.nativeEvent,
-          JSON.stringify(gestureState),
+          JSON.stringify(gestureState)
         );
         return true;
       },
@@ -87,7 +88,7 @@ export default class PanResponderExample extends NavigationPage {
         console.log(
           'onPanResponderRelease',
           e.nativeEvent,
-          JSON.stringify(gestureState),
+          JSON.stringify(gestureState)
         );
         this.handleTouches(e.nativeEvent.touches);
 
@@ -117,14 +118,14 @@ export default class PanResponderExample extends NavigationPage {
         console.log(
           'onPanResponderTerminate',
           e.nativeEvent,
-          JSON.stringify(gestureState),
+          JSON.stringify(gestureState)
         );
       },
       onShouldBlockNativeResponder: (e, gestureState) => {
         console.log(
           'onShouldBlockNativeResponder',
           e,
-          JSON.stringify(gestureState),
+          JSON.stringify(gestureState)
         );
         return true;
       },
@@ -163,7 +164,8 @@ export default class PanResponderExample extends NavigationPage {
     let dy = t1.y - t0.y;
 
     //scale
-    let distance0 = 0, distance1 = 0;
+    let distance0 = 0,
+      distance1 = 0;
     if (touches.length >= 2) {
       let dx0 = prevTouches[1].pageX - prevTouches[0].pageX;
       let dy0 = prevTouches[1].pageY - prevTouches[0].pageY;
@@ -225,7 +227,7 @@ export default class PanResponderExample extends NavigationPage {
               ],
               overflow: 'hidden',
             }}
-            onLayout={e => this.layout = e.nativeEvent.layout}
+            onLayout={e => (this.layout = e.nativeEvent.layout)}
             ref="view"
             {...this.panResponder.panHandlers}
           >

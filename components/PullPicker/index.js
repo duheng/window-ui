@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
 import Overlay from '../Overlay';
@@ -16,7 +17,7 @@ export default class PullPicker extends Overlay {
         selectedIndex={selectedIndex}
         onSelected={onSelected}
         {...options}
-      />,
+      />
     );
   }
 }

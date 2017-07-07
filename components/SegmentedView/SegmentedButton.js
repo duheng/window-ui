@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import Theme from '../../themes/Theme';
@@ -74,7 +75,7 @@ export default class SegmentedButton extends Component {
           count={badge}
           onLayout={e => {
             let { width, height } = e.nativeEvent.layout;
-            let badgeRight = (-width) / 2;
+            let badgeRight = -width / 2;
             let badgeTop = 0;
             if (
               badgeRight != this.state.badgeRight ||

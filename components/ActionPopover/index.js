@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Overlay from '../Overlay';
 import ActionPopoverView from './ActionPopoverView';
 
@@ -16,7 +16,7 @@ export default class ActionPopover extends Overlay {
         fromBounds={fromBounds}
         items={items}
         {...options}
-      />,
+      />
     );
   }
 }

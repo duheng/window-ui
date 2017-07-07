@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ScrollView } from 'react-native';
 
 import Theme from '../../themes/Theme';
@@ -67,14 +68,14 @@ export default class PullPickerView extends Overlay.PullView {
         {!title ? null : <View style={headerSeparatorStyle} />}
         <ScrollView style={{ backgroundColor: Theme.pupColor, flexGrow: 1 }}>
           {items &&
-            items.map((item, index) => (
+            items.map((item, index) =>
               <this.constructor.Item
                 key={'item' + index}
                 title={getItemText ? getItemText(item, index) : item}
                 selected={index === selectedIndex}
                 onPress={() => this.onItemPress(index)}
               />
-            ))}
+            )}
         </ScrollView>
       </View>
     );
